@@ -11,4 +11,12 @@ public class Pea extends Entity
         super(x_position, y_position, 1, 2, image_path);
         this.attack = attack;
     }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
 }

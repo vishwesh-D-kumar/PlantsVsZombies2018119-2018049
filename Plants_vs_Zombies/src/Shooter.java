@@ -6,4 +6,16 @@ public class Shooter extends Plant {
         this.shoot = shoot;
         this.shoot_time = shoot_time;
     }
+
+    public Pea getShoot() {
+        return shoot;
+    }
+
+    public void setShoot(Pea shoot) {
+        this.shoot = shoot;
+    }
+
+    public int getShoot_time() {
+        return shoot_time;
+    }
 }

@@ -11,4 +11,19 @@ public abstract class Plant extends Entity
         this.cooldown = MAX_COOLDOWN;
     }
 
+    public int getSUN_COST() {
+        return SUN_COST;
+    }
+
+    public int getCooldown() {
+        return cooldown;
+    }
+
+    public void setCooldown(int cooldown) {
+        this.cooldown = cooldown;
+    }
+
+    public int getMAX_COOLDOWN() {
+        return MAX_COOLDOWN;
+    }
 }
