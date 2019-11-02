@@ -8,7 +8,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="-1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../sprites/background/menu_bg.jpg" />
+            <Image url="@../sprites/background/menu_bg.jpg" />
          </image>
       </ImageView>
       <TextField layoutX="177.0" layoutY="77.0" />
