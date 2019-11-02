@@ -1,3 +1,5 @@
+package entity;
+
 public class Shooter extends Plant {
     protected Pea shoot;
     protected final int shoot_time;

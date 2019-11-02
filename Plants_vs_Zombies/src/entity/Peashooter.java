@@ -1,3 +1,5 @@
+package entity;
+
 public final class Peashooter extends Shooter
 {
     public Peashooter(int x_position, int y_position) {

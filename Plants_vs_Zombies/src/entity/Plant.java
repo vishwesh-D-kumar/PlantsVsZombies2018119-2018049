@@ -1,3 +1,5 @@
+package entity;
+
 public abstract class Plant extends Entity
 {
     protected final int SUN_COST;

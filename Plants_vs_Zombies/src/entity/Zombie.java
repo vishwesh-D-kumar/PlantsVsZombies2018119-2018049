@@ -1,3 +1,5 @@
+package entity;
+
 public abstract class Zombie extends Entity
 {
     public Zombie(int x_position, int y_position, int health,int speed,String image_path)

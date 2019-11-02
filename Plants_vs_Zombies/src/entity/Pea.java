@@ -1,3 +1,5 @@
+package entity;
+
 public class Pea extends Entity
 {
     protected int attack;

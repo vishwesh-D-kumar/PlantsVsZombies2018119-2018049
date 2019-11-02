@@ -1,3 +1,5 @@
+package entity;
+
 public class Walnut extends Barrier
 {
     public Walnut(int x_position, int y_position) {

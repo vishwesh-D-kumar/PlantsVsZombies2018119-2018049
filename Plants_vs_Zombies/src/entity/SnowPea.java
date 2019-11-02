@@ -1,3 +1,5 @@
+package entity;
+
 public class SnowPea extends Pea {
     public SnowPea(int x_position, int y_position, String image_path)
     {
