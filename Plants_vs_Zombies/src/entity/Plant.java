@@ -28,4 +28,9 @@ public abstract class Plant extends Entity
     public int getMAX_COOLDOWN() {
         return MAX_COOLDOWN;
     }
+
+    @Override
+    public void updatepos() {
+        x_position += speed;
+    }
 }

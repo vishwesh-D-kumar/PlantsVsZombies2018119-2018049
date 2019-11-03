@@ -1,16 +1,17 @@
 package controllers;
 
+import helper.UpdatePos;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
-
+import javafx.util.Duration;
 
 
 public class Game_Controller
@@ -68,7 +69,7 @@ public class Game_Controller
         }
     }
     @FXML
-    public void setPlant(ActionEvent event)
+    public void setPlant(MouseEvent event)
     {
         if(plant_selected)
         {
@@ -78,10 +79,27 @@ public class Game_Controller
     }
 
 
+    @FXML
     public void selectShovel(MouseEvent mouseEvent) {
 
     }
-
+    @FXML
     public void plantSelected(MouseEvent mouseEvent) {
+        if(plant_selected)
+        {
+            System.out.println("yes");
+        }
     }
+    @FXML
+    public void setupTimeline(ActionEvent event)
+    {
+        KeyFrame update_frame =  new KeyFrame(Duration.millis((double)1000), new helper.UpdatePos());
+        Timeline tl = new Timeline(update_frame);
+        tl.setCycleCount(Animation.INDEFINITE);
+        tl.play();
+
+    }
+
+
+
 }

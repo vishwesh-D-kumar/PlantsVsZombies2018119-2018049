@@ -1,8 +1,11 @@
 
 import helper.sceneLoader;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 
 public class Main extends Application {

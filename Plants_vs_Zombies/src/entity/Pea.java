@@ -21,4 +21,9 @@ public class Pea extends Entity
     public void setAttack(int attack) {
         this.attack = attack;
     }
+
+    @Override
+    public void updatepos() {
+        x_position += speed;
+    }
 }

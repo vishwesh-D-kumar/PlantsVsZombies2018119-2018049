@@ -63,4 +63,15 @@ public abstract class  Entity {
     public String getImage_path() {
         return image_path;
     }
+
+    public ImageView getImg() {
+        return img;
+    }
+
+    public void setImg(ImageView img) {
+        this.img = img;
+    }
+
+    public abstract void updatepos();
+
 }

@@ -35,6 +35,7 @@ public class sceneLoader{
         Parent root = FXMLLoader.load(getClass().getResource(url));
         if (name.equals("game")){
             nameToScene.put(name,new Scene(root,678,482));
+
         }
         else {
             nameToScene.put(name, new Scene(root, 596, 340));

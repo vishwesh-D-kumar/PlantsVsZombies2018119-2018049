@@ -6,4 +6,9 @@ public abstract class Zombie extends Entity
     {
         super(x_position, y_position, health,speed,image_path);
     }
+
+    @Override
+    public void updatepos() {
+        x_position+=speed;
+    }
 }
