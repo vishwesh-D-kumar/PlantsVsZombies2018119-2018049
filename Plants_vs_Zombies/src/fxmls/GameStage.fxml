@@ -53,6 +53,7 @@
                </image>
             </ImageView>
             <Button mnemonicParsing="false" onAction="#setupTimeline" text="START" />
+            <TextField fx:id="timer" editable="false" prefHeight="50.0" prefWidth="72.0" />
          </children>
       </HBox>
       <GridPane id="Lawn_Grid" fx:id="lawn" gridLinesVisible="false" layoutX="166.0" layoutY="129.0" onMouseClicked="#plantSelected" prefHeight="332.0" prefWidth="497.0">
