@@ -6,12 +6,14 @@ import entity.normalZombie;
 import entity.sun;
 import gameclasses.Level;
 import helper.UpdatePos;
+import helper.UpdateTimer;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -26,6 +28,9 @@ public class Game_Controller
 {
     private static Stage currStage;
     private static gameclasses.Level currLevel;
+    @FXML
+    TextField timer;
+
     @FXML
     private AnchorPane anchor;
     @FXML
@@ -126,7 +131,9 @@ public class Game_Controller
 //        currStage.getScene().getRoot().getC
         KeyFrame update_frame =  new KeyFrame(Duration.millis((double)10), new helper.UpdatePos(currLevel,currStage));
 //       KeyFrame update_spawn = new KeyFrame(Duration.millis((double)1),new helper.UpdateSpawn(currLevel,currStage,anchor));
+        KeyFrame update_timer=new KeyFrame(Duration.millis((double)(100)),new helper.UpdateTimer(600,timer));
         Timeline tl = new Timeline(update_frame);
+        tl.getKeyFrames().add(update_timer);
 //        tl.getKeyFrames().add(update_spawn);
         tl.setCycleCount(Animation.INDEFINITE);
         tl.play();
