@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="482.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Game_Controller">
+<AnchorPane fx:id="anchor" prefHeight="482.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Game_Controller">
    <children>
       <ImageView fitHeight="408.0" fitWidth="688.0" layoutX="-2.0" layoutY="72.0" pickOnBounds="true">
          <image>
@@ -106,6 +106,12 @@
                   <Image url="@../sprites/entity_images/PeaShooter.gif" />
                </image>
             </ImageView>
+
+             <ImageView fx:id="peamove" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                 <image>
+                     <Image url="@../sprites/entity_images/pea.png" />
+                 </image>
+             </ImageView>
          </children>
       </GridPane>
    </children>

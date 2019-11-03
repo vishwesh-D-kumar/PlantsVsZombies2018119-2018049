@@ -8,6 +8,7 @@ public class Suntype extends Plant implements spawner {
 
     @Override
     public void spawn() {
+        sun sun=new sun(x_position,y_position);
 
     }
 }

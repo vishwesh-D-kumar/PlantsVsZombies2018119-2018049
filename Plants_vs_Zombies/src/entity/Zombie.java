@@ -10,5 +10,6 @@ public abstract class Zombie extends Entity
     @Override
     public void updatepos() {
         x_position+=speed;
+        img.setX(x_position);
     }
 }

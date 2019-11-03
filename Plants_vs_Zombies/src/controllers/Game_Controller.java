@@ -1,22 +1,34 @@
 package controllers;
 
+import entity.Pea;
+import entity.Zombie;
+import entity.normalZombie;
+import gameclasses.Level;
 import helper.UpdatePos;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
 public class Game_Controller
 {
+    private static Stage currStage;
     private static gameclasses.Level currLevel;
+    @FXML
+    private AnchorPane anchor;
+    @FXML
+    private ImageView peamove;
     @FXML
     private ImageView peashooter;
     @FXML
@@ -38,6 +50,11 @@ public class Game_Controller
     public static void setLevel(gameclasses.Level level){
         currLevel=level;
     }
+
+    public static void setCurrStage(Stage primaryStage) {
+        currStage=primaryStage;
+    }
+
     public void selectPlant(ActionEvent Click)
     {
         String id = ((Control)Click.getSource()).getId();
@@ -93,10 +110,24 @@ public class Game_Controller
     @FXML
     public void setupTimeline(ActionEvent event)
     {
-        KeyFrame update_frame =  new KeyFrame(Duration.millis((double)1000), new helper.UpdatePos());
+        Pea pea=new Pea(260,260);
+        Zombie zombie=new normalZombie(360,250);
+
+        anchor.getChildren().add(pea.getImg());
+        anchor.getChildren().add(zombie.getImg());
+
+//        pea.setImg(peamove);
+//        currStage.getScene().getRoot();
+        currLevel.getPeas().add(pea);
+        currLevel.getZombies().add(zombie);
+
+//        currStage.getScene().getRoot().getC
+        KeyFrame update_frame =  new KeyFrame(Duration.millis((double)10), new helper.UpdatePos(currLevel,currStage));
         Timeline tl = new Timeline(update_frame);
         tl.setCycleCount(Animation.INDEFINITE);
         tl.play();
+
+
 
     }
 

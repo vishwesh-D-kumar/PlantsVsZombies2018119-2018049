@@ -20,6 +20,9 @@ public abstract class  Entity {
         this.speed = speed;
         this.image_path = image_path;
         this.img=new ImageView(new Image(image_path));
+        this.img.setX(x_position);
+        this.img.setY(y_position);
+
 
 
     }
@@ -70,6 +73,10 @@ public abstract class  Entity {
 
     public void setImg(ImageView img) {
         this.img = img;
+        this.x_position=(int)this.img.getX();
+        this.y_position=(int)this.img.getY();
+
+
     }
 
     public abstract void updatepos();

@@ -15,6 +15,7 @@ public class Main extends Application {
         sceneLoader loader=new sceneLoader();
         Scene welcomeScene=loader.getScene("welcome");
         controllers.initialController.setCurrStage(primaryStage);
+        controllers.Game_Controller.setCurrStage(primaryStage);
         primaryStage.setTitle("Welcome");
         primaryStage.setScene(welcomeScene);
         primaryStage.show();
