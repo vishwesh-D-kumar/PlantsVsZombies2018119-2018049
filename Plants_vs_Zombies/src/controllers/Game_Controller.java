@@ -11,6 +11,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -20,11 +21,15 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.security.Key;
+
 
 public class Game_Controller
 {
     private static Stage currStage;
     private static gameclasses.Level currLevel;
+    @FXML
+    private TextField timer;
     @FXML
     private AnchorPane anchor;
     @FXML
@@ -112,6 +117,8 @@ public class Game_Controller
     {
         Pea pea=new Pea(260,260);
         Zombie zombie=new normalZombie(360,250);
+        int time = 600;
+        timer.setText(Integer.toString(time));
 
         anchor.getChildren().add(pea.getImg());
         anchor.getChildren().add(zombie.getImg());
@@ -120,11 +127,13 @@ public class Game_Controller
 //        currStage.getScene().getRoot();
         currLevel.getPeas().add(pea);
         currLevel.getZombies().add(zombie);
-
+        helper.UpdateTimer updater = new helper.UpdateTimer(time,timer);
 //        currStage.getScene().getRoot().getC
         KeyFrame update_frame =  new KeyFrame(Duration.millis((double)10), new helper.UpdatePos(currLevel,currStage));
+        KeyFrame update_time = new KeyFrame(Duration.millis(100),updater);
 //        KeyFrame update_spawn = new KeyFrame(Duration.millis((double)1),new hel)
         Timeline tl = new Timeline(update_frame);
+        tl.getKeyFrames().add(update_time);
         tl.setCycleCount(Animation.INDEFINITE);
         tl.play();
 
