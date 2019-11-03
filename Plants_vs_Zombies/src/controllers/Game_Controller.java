@@ -123,6 +123,7 @@ public class Game_Controller
 
 //        currStage.getScene().getRoot().getC
         KeyFrame update_frame =  new KeyFrame(Duration.millis((double)10), new helper.UpdatePos(currLevel,currStage));
+//        KeyFrame update_spawn = new KeyFrame(Duration.millis((double)1),new hel)
         Timeline tl = new Timeline(update_frame);
         tl.setCycleCount(Animation.INDEFINITE);
         tl.play();

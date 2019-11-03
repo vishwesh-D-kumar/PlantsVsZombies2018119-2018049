@@ -3,6 +3,7 @@ package gameclasses;
 import entity.Pea;
 import entity.Plant;
 import entity.Zombie;
+import entity.sun;
 
 import java.util.ArrayList;
 
@@ -10,9 +11,12 @@ public class Level {
     private ArrayList<entity.Pea> peas=new ArrayList<>();
     private ArrayList<entity.Zombie> zombies=new ArrayList<>();
     private ArrayList<entity.Plant> plants = new ArrayList<>();
+
+    public ArrayList<sun> getSuns() {
+        return suns;
+    }
+
     private ArrayList<entity.sun> suns=new ArrayList<>();
-
-
 
     public ArrayList<Pea> getPeas() {
         return peas;
