@@ -16,6 +16,7 @@ public class sceneLoader{
         nameToPath.put("welcome","/fxmls/sample.fxml");
         nameToPath.put("login","/fxmls/loginscreen.fxml");
         nameToPath.put("game","/fxmls/GameStage.fxml");
+        nameToPath.put("help","/fxmls/help.fxml");
         for (String name :
                 nameToPath.keySet()) {
             System.out.println(name);

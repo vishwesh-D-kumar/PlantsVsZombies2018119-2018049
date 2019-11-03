@@ -12,6 +12,7 @@
          </image></ImageView>
       <Button fx:id="login" layoutX="201.0" layoutY="123.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="27.0" prefWidth="342.0" text="Start New Game" />
       <Button layoutX="197.0" layoutY="188.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="351.0" text="Load Game" />
-      <Button layoutX="197.0" layoutY="304.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="351.0" text="Exit" />
+      <Button fx:id="end" layoutX="197.0" layoutY="304.0" mnemonicParsing="false" onAction="#closeGame" prefHeight="27.0" prefWidth="351.0" text="Exit" />
+      <Button fx:id="help" layoutX="197.0" layoutY="246.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="27.0" prefWidth="351.0" text="Help" />
    </children>
 </Pane>
