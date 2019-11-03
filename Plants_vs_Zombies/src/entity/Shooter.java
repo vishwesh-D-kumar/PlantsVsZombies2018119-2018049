@@ -1,5 +1,9 @@
 package entity;
 
+import gameclasses.Level;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 public class Shooter extends Plant {
     protected Pea shoot;
     protected final int shoot_time;
@@ -20,4 +24,15 @@ public class Shooter extends Plant {
     public int getShoot_time() {
         return shoot_time;
     }
+
+    public void spawn(Level a, Stage stage, AnchorPane anchor) {
+        Pea pea=new Pea(x_position,y_position);
+        a.getPeas().add(pea);
+        anchor.getChildren().add(pea.getImg());
+
+
+    }
+
+
+
 }

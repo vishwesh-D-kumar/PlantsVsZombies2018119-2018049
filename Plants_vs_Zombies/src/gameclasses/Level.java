@@ -1,9 +1,6 @@
 package gameclasses;
 
-import entity.Pea;
-import entity.Plant;
-import entity.Zombie;
-import entity.sun;
+import entity.*;
 
 import java.util.ArrayList;
 
@@ -12,6 +9,17 @@ public class Level {
     private ArrayList<entity.Zombie> zombies=new ArrayList<>();
     private ArrayList<entity.Plant> plants = new ArrayList<>();
 
+    public ArrayList<Suntype> getSuntypes() {
+        return suntypes;
+    }
+
+    private ArrayList<entity.Suntype> suntypes=new ArrayList<>();
+
+    public ArrayList<Shooter> getShooters() {
+        return shooters;
+    }
+
+    private ArrayList<entity.Shooter> shooters=new ArrayList<>();
     public ArrayList<sun> getSuns() {
         return suns;
     }

@@ -3,6 +3,7 @@ package controllers;
 import entity.Pea;
 import entity.Zombie;
 import entity.normalZombie;
+import entity.sun;
 import gameclasses.Level;
 import helper.UpdatePos;
 import javafx.animation.Animation;
@@ -112,7 +113,8 @@ public class Game_Controller
     {
         Pea pea=new Pea(260,260);
         Zombie zombie=new normalZombie(360,250);
-
+        sun sun =new sun (270,280);
+        anchor.getChildren().add(sun.getImg());
         anchor.getChildren().add(pea.getImg());
         anchor.getChildren().add(zombie.getImg());
 
@@ -123,8 +125,9 @@ public class Game_Controller
 
 //        currStage.getScene().getRoot().getC
         KeyFrame update_frame =  new KeyFrame(Duration.millis((double)10), new helper.UpdatePos(currLevel,currStage));
-//        KeyFrame update_spawn = new KeyFrame(Duration.millis((double)1),new hel)
+//       KeyFrame update_spawn = new KeyFrame(Duration.millis((double)1),new helper.UpdateSpawn(currLevel,currStage,anchor));
         Timeline tl = new Timeline(update_frame);
+//        tl.getKeyFrames().add(update_spawn);
         tl.setCycleCount(Animation.INDEFINITE);
         tl.play();
 

@@ -1,6 +1,7 @@
 package entity;
 
 import gameclasses.Level;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Suntype extends Plant implements spawner {
@@ -10,9 +11,11 @@ public class Suntype extends Plant implements spawner {
     }
 
     @Override
-    public void spawn(Level level , Stage s) {
+    public void spawn(Level level, Stage s, AnchorPane anchor) {
         sun sun=new sun(x_position,y_position);
         level.getSuns().add(sun);
+        anchor.getChildren().add(sun.getImg());
+
 
 
 
