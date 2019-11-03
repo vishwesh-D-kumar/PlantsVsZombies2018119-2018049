@@ -15,6 +15,7 @@ public class sceneLoader{
     public sceneLoader () throws IOException {
         nameToPath.put("welcome","/fxmls/sample.fxml");
         nameToPath.put("login","/fxmls/loginscreen.fxml");
+        nameToPath.put("game","/fxmls/GameStage.fxml");
         for (String name :
                 nameToPath.keySet()) {
             System.out.println(name);
@@ -32,7 +33,12 @@ public class sceneLoader{
     public Scene getNewScene(String name) throws IOException {
         String url=nameToPath.get(name);
         Parent root = FXMLLoader.load(getClass().getResource(url));
-        nameToScene.put(name,new Scene(root,596,340));
+        if (name.equals("game")){
+            nameToScene.put(name,new Scene(root,678,482));
+        }
+        else {
+            nameToScene.put(name, new Scene(root, 596, 340));
+        }
         return nameToScene.get(name);
     }
 }
