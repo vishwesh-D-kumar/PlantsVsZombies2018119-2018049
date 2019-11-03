@@ -5,7 +5,7 @@ public class Pea extends Entity
     protected int attack;
 
     public Pea(int x_position, int y_position) {
-        super(x_position, y_position, 1, 2, "");
+        super(x_position, y_position, 1, 2, "/sprites/pea.png");
     }
 
     public Pea(int x_position, int y_position, String image_path, int attack)

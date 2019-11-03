@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 
 public class Game_Controller
 {
+    private static gameclasses.Level currLevel;
     @FXML
     private ImageView peashooter;
     @FXML
@@ -33,6 +34,9 @@ public class Game_Controller
     private Image image;
     private boolean plant_selected = false;
     @FXML
+    public static void setLevel(gameclasses.Level level){
+        currLevel=level;
+    }
     public void selectPlant(ActionEvent Click)
     {
         String id = ((Control)Click.getSource()).getId();
@@ -75,6 +79,7 @@ public class Game_Controller
 
 
     public void selectShovel(MouseEvent mouseEvent) {
+
     }
 
     public void plantSelected(MouseEvent mouseEvent) {

@@ -109,7 +109,7 @@
       </GridPane>
       <ImageView fitHeight="23.0" fitWidth="19.0" layoutX="298.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../sprites/entity_images/ProjectilePea.png" />
+            <Image url="@../sprites/entity_images/pea.png" />
          </image>
       </ImageView>
    </children>

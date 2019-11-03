@@ -1,5 +1,6 @@
 package controllers;
 
+import gameclasses.Level;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,6 +25,10 @@ public class initialController {
 //            currStage.setTitle("login");
         currStage.setTitle(((Control)evt.getSource()).getId());
             currStage.show();
+            if (((Control)evt.getSource()).getId().equals("game")){
+                Level level=new Level();
+                Game_Controller.setLevel(level);
+            }
 
 
     }

@@ -1,5 +1,8 @@
 package entity;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public abstract class  Entity {
     protected int x_position;
     protected int y_position;
@@ -7,6 +10,7 @@ public abstract class  Entity {
     protected final int MAX_HEALTH;
     protected int speed;
     protected final String image_path;
+    protected ImageView img;
     Entity(int x_position,int y_position,int MAX_HEALTH,int speed,String image_path)
     {
         this.x_position = x_position;
@@ -15,6 +19,9 @@ public abstract class  Entity {
         this.MAX_HEALTH = MAX_HEALTH;
         this.speed = speed;
         this.image_path = image_path;
+        this.img=new ImageView(new Image(image_path));
+
+
     }
 
     public int getX_position() {
