@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.initialController">
+   <children>
+      <TextArea editable="false" layoutX="200.0" layoutY="45.0" prefHeight="35.0" prefWidth="293.0" promptText="Game directions" text="1) Press StartGame and Login to play " />
+      <TextField editable="false" layoutX="204.0" layoutY="150.0" prefHeight="31.0" prefWidth="293.0" text="2) Plant plants using the plant selector above and try to get the zombies to stop " />
+      <Button fx:id="welcome" layoutX="292.0" layoutY="282.0" mnemonicParsing="false" onAction="#changeScreen" text="Back" />
+   </children>
+</AnchorPane>
