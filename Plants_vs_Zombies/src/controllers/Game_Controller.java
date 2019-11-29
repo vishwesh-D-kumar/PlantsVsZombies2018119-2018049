@@ -1,9 +1,6 @@
 package controllers;
 
-import entity.Pea;
-import entity.Zombie;
-import entity.normalZombie;
-import entity.sun;
+import entity.*;
 import gameclasses.Level;
 import helper.UpdatePos;
 import helper.UpdateTimer;
@@ -49,6 +46,8 @@ public class Game_Controller
     private ImageView shovel;
     @FXML
     private GridPane lawn;
+    @FXML
+    private ImageView grid2_0;
 
     private Image image;
     private boolean plant_selected = false;
@@ -119,6 +118,8 @@ public class Game_Controller
         Pea pea=new Pea(260,260);
         Zombie zombie=new normalZombie(360,250);
         sun sun =new sun (270,280);
+        Peashooter  peashooter = new Peashooter(10,11);
+        grid2_0.setImage( peashooter.getImg().getImage());
         anchor.getChildren().add(sun.getImg());
         anchor.getChildren().add(pea.getImg());
         anchor.getChildren().add(zombie.getImg());
