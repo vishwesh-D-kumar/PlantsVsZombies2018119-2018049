@@ -18,7 +18,7 @@ public class initialController {
 
     }
     @FXML
-    public void changeScreen(ActionEvent evt){
+    public  void changeScreen(ActionEvent evt){
         System.out.println(((Control)evt.getSource()).getId());
         Scene currScene=helper.sceneLoader.getScene(((Control)evt.getSource()).getId());
             currStage.setScene(currScene);

@@ -2,8 +2,10 @@ package controllers;
 
 import gameclasses.player;
 import helper.login;
+import helper.sceneLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
@@ -19,8 +21,7 @@ public class loginController {
 
 
 
-
-    public void login(ActionEvent evt){
+    private void initialize(){
         if (logger==null){
             try {
                 logger= helper.login.deserialize();
@@ -28,11 +29,29 @@ public class loginController {
                 logger=new login();
             }
         }
+    }
+    public void login(ActionEvent evt){
+        initialize();
         try{
         player player=logger.getPlayer(userName.getText(),password.getText());}
-
         catch (Exception e) {
             error.setText("ERROR!!! " + e.getMessage());
         }
+
+
     }
+    public void changeScreen(ActionEvent evt){
+            sceneLoader.changeScreen(evt);
+    }
+    public void registerUser(ActionEvent evt){
+        initialize();
+        try{
+            logger.addUser(userName.getText(),password.getText(),new player());}
+        catch (Exception e) {
+            error.setText("ERROR!!! " + e.getMessage());
+        }
+
+    }
+
+
 }

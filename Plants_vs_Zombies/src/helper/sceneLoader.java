@@ -1,13 +1,20 @@
 package helper;
 
+import gameclasses.Level;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Control;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.HashMap;
 
 public class sceneLoader{
+    private static Stage currStage;
+
+
     private static HashMap<String,String> nameToPath=new HashMap<>();
     private static HashMap<String, Scene> nameToScene=new HashMap<>();
 
@@ -17,6 +24,7 @@ public class sceneLoader{
         nameToPath.put("login","/fxmls/loginscreen.fxml");
         nameToPath.put("game","/fxmls/GameStage.fxml");
         nameToPath.put("help","/fxmls/help.fxml");
+        nameToPath.put("register","/fxmls/userRegister.fxml");
         for (String name :
                 nameToPath.keySet()) {
             System.out.println(name);
@@ -25,7 +33,23 @@ public class sceneLoader{
         }
 
     }
+    public static void setCurrStage(Stage currStage) {
+        sceneLoader.currStage = currStage;
 
+
+    }
+    public static void changeScreen(ActionEvent evt) {
+        System.out.println(((Control) evt.getSource()).getId());
+        Scene currScene = helper.sceneLoader.getScene(((Control) evt.getSource()).getId());
+        currStage.setScene(currScene);
+//            currStage.setTitle("login");
+        currStage.setTitle(((Control) evt.getSource()).getId());
+        currStage.show();
+        if (((Control) evt.getSource()).getId().equals("game")) {
+            Level level = new Level();
+            controllers.Game_Controller.setLevel(level);
+        }
+    }
     public static Scene getScene(String name){
         return nameToScene.get(name);
 

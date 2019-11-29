@@ -69,14 +69,14 @@ public class login implements Serializable {
              }
 
          }
-    public void addUser(String username, String password, player player) throws userNameExists {
+    public void addUser(String username, String password, player player) throws userNameExists, IOException {
         if (nameToPlayer.containsKey(username)){
             throw new errors.userNameExists();
 
         }
         nameToPlayer.put(username,player);
         nameToPass.put(username,password);
-
+        serialize();
     }
 
 
