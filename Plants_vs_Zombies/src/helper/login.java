@@ -4,16 +4,18 @@ import errors.userNameExists;
 import errors.userNotFound;
 import gameclasses.player;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.HashMap;
 
 public class login implements Serializable {
-    private static HashMap<String,String> nameToPass;
-    private static HashMap<String,gameclasses.player> nameToPlayer;
-    private  HashMap<String,String> nameToPass2;
-    private  HashMap<String,gameclasses.player> nameToPlayer2;
+    private  HashMap<String,String> nameToPass;
+    private  HashMap<String,gameclasses.player> nameToPlayer;
+    public login (){
+        nameToPass=new HashMap<>();
+        nameToPlayer=new HashMap<>();
 
-    public static player getPlayer (String userName, String password ) throws userNotFound, passwordMismatch {
+    }
+    public player getPlayer (String userName, String password ) throws userNotFound, passwordMismatch {
      if (!nameToPass.containsKey(userName)){
             throw new errors.userNotFound();
      }
@@ -25,31 +27,48 @@ public class login implements Serializable {
 
     }
 
-    public static void setNameToPass(HashMap<String, String> nameToPass) {
-        login.nameToPass = nameToPass;
-    }
 
-    public static void setNameToPlayer(HashMap<String, player> nameToPlayer) {
-        login.nameToPlayer = nameToPlayer;
-    }
-    public void onSave(){
-        nameToPass2=nameToPass;
-        nameToPlayer2=nameToPlayer;
-    }
-    public void initiliaze(){
-        if (nameToPlayer2==null){
-            nameToPlayer2=new HashMap<>();
-            nameToPass2=new HashMap<>();
-        }
-        equalize();
+//    public void onSave(){
+//        nameToPass2=nameToPass;
+//        nameToPlayer2=nameToPlayer;
+//    }
+//    public void initiliaze(){
+//        if (nameToPlayer2==null){
+//            nameToPlayer2=new HashMap<>();
+//            nameToPass2=new HashMap<>();
+//        }
+//        equalize();
+//
 
-
+//    }
+//    private void equalize(){
+//        nameToPass=nameToPass2;
+//        nameToPlayer=nameToPlayer2;
+//
+//    }
+    public  void serialize() throws IOException {
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream (
+                     new FileOutputStream("login.txt"));
+            out.writeObject(this);
+             } finally {
+            out.close();
+             }
     }
-    private void equalize(){
-        nameToPass=nameToPass2;
-        nameToPlayer=nameToPlayer2;
+    public static login deserialize()
+ throws IOException, ClassNotFoundException {
+         ObjectInputStream in = null;
+        try {
+             in = new ObjectInputStream (
+                     new FileInputStream("login.txt"));
+             login s1 = (login) in.readObject();
+            return s1;
+             } finally {
+             in.close();
+             }
 
-    }
+         }
     public void addUser(String username, String password, player player) throws userNameExists {
         if (nameToPlayer.containsKey(username)){
             throw new errors.userNameExists();
@@ -59,6 +78,7 @@ public class login implements Serializable {
         nameToPass.put(username,password);
 
     }
+
 
 
 }
