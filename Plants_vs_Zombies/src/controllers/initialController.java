@@ -35,4 +35,5 @@ public class initialController {
     public void closeGame(ActionEvent e){
         System.exit(0);
     }
+
 }
