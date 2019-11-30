@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
 
+import java.util.ArrayList;
+
 public class initialController {
     private static Stage currStage;
     @FXML public Button login;
@@ -26,7 +28,7 @@ public class initialController {
         currStage.setTitle(((Control)evt.getSource()).getId());
             currStage.show();
             if (((Control)evt.getSource()).getId().equals("game")){
-                Level level=new Level();
+                Level level=new Level(1,new ArrayList<entity.Plant>());
                 Game_Controller.setLevel(level);
             }
 

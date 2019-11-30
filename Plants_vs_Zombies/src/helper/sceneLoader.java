@@ -1,5 +1,6 @@
 package helper;
 
+import entity.Plant;
 import gameclasses.Level;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.control.Control;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class sceneLoader{
@@ -45,8 +47,9 @@ public class sceneLoader{
 //            currStage.setTitle("login");
         currStage.setTitle(((Control) evt.getSource()).getId());
         currStage.show();
-        if (((Control) evt.getSource()).getId().equals("game")) {
-            Level level = new Level();
+
+        if (((Control) evt.getSource()).getId().equals("login")) {
+            Level level = new Level(1,new ArrayList<Plant>());
             controllers.Game_Controller.setLevel(level);
         }
     }
