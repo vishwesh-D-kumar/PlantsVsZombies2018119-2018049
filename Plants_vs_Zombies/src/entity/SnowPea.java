@@ -1,6 +1,6 @@
 package entity;
 
-public class SnowPea extends Pea {
+public final class SnowPea extends Pea {
 
     public SnowPea(int x_position, int y_position)
     {
