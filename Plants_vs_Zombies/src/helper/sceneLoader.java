@@ -27,6 +27,10 @@ public class sceneLoader{
         nameToPath.put("game","/fxmls/GameStage.fxml");
         nameToPath.put("help","/fxmls/help.fxml");
         nameToPath.put("register","/fxmls/userRegister.fxml");
+        nameToPath.put("playerMenu","/fxmls/playerMenu.fxml");
+        nameToPath.put("gameStage","/fxmls/GameStage.fxml");
+        nameToPath.put("plantSelect","/fxmls/plantSelect.fxml");
+        nameToPath.put("levelSelect","/fxmls/levelSelect.fxml");
         for (String name :
                 nameToPath.keySet()) {
             System.out.println(name);
@@ -52,6 +56,16 @@ public class sceneLoader{
             Level level = new Level(1,new ArrayList<Plant>());
             controllers.Game_Controller.setLevel(level);
         }
+    }
+    public static void changeScreen( String name) {
+//        System.out.println(((Control) evt.getSource()).getId());
+        Scene currScene = helper.sceneLoader.getScene(name);
+        currStage.setScene(currScene);
+//            currStage.setTitle("login");
+        currStage.setTitle(name);
+        currStage.show();
+
+
     }
     public static Scene getScene(String name){
         return nameToScene.get(name);

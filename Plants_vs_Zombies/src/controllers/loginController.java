@@ -32,13 +32,20 @@ public class loginController {
     }
     public void login(ActionEvent evt){
         initialize();
-        try{
-        player player=logger.getPlayer(userName.getText(),password.getText());}
-        catch (Exception e) {
-            error.setText("ERROR!!! " + e.getMessage());
+        player mainplayer=new player();
+        boolean authenticated=false;
+        while(!authenticated) {
+            try {
+                mainplayer= logger.getPlayer(userName.getText(), password.getText());
+                System.out.println(mainplayer);
+                authenticated=true;
+            } catch (Exception e) {
+                error.setText("ERROR!!! " + e.getMessage());
+                return;
+            }
         }
-
-
+        gameclasses.player.setCurrPlayer(mainplayer);
+        sceneLoader.changeScreen("playerMenu");
     }
     public void changeScreen(ActionEvent evt){
             sceneLoader.changeScreen(evt);
