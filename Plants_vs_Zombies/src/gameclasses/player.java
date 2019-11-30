@@ -1,6 +1,5 @@
 package gameclasses;
 
-import entity.Plant;
 import errors.notEnoughCoins;
 
 import java.io.Serializable;

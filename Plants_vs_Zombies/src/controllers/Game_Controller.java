@@ -25,7 +25,9 @@ import javafx.util.Duration;
 
 public class Game_Controller
 {
+
     private static Stage currStage;
+    private int plant_choice=-1;
     private static gameclasses.Level currLevel;
     @FXML
     TextField timer;
@@ -33,17 +35,19 @@ public class Game_Controller
     @FXML
     private AnchorPane anchor;
     @FXML
-    private ImageView peamove;
+    private ImageView p1;
     @FXML
-    private ImageView peashooter;
+    private ImageView p2;
     @FXML
-    private ImageView sunflower;
+    private ImageView p3;
     @FXML
-    private ImageView torchwood;
+    private ImageView p4;
     @FXML
-    private ImageView snowpea;
+    private ImageView p5;
     @FXML
-    private ImageView walnut;
+    private ImageView p6;
+    @FXML
+    private ImageView p7;
     @FXML
     private ImageView shovel;
     @FXML
@@ -52,6 +56,7 @@ public class Game_Controller
 
     private Image image;
     private boolean plant_selected = false;
+    private boolean shovel_Selected = false;
     @FXML
     public static void setLevel(gameclasses.Level level){
         currLevel=level;
@@ -61,84 +66,92 @@ public class Game_Controller
         currStage=primaryStage;
     }
 
+    public void setUpgame()
+    {
+
+    }
     public void selectPlant(MouseEvent Click)
     {
         ImageView v = (ImageView) Click.getSource();
         String id = v.getId();
         System.out.println(id);
-        if(id.equals("peashooter"))
+        if(id.equals("p1"))
         {
-            image = peashooter.getImage();
+
             plant_selected = true;
+            plant_choice =0;
         }
-        if(id.equals("sunflower"))
+        if(id.equals("p2"))
         {
-            image = sunflower.getImage();
             plant_selected = true;
+            plant_choice =1;
         }
-        if(id.equals("walnut"))
+        if(id.equals("p3"))
         {
-            image = walnut.getImage();
             plant_selected = true;
+            plant_choice =2;
         }
-        if(id.equals("torchwood"))
+        if(id.equals("p4"))
         {
-            image = torchwood.getImage();
             plant_selected = true;
+            plant_choice =3;
         }
-        if(id.equals("snowpea"))
+        if(id.equals("p5"))
         {
-            image = snowpea.getImage();
             plant_selected = true;
+            plant_choice =4;
         }
-    }
-    @FXML
-    public void setPlant(MouseEvent event)
-    {
-        if(plant_selected)
+        if(id.equals("p6"))
         {
-            ImageView imageView = new ImageView(image);
+            plant_selected = true;
+            plant_choice =5;
 
         }
+        if(id.equals("p7"))
+        {
+            plant_selected = true;
+            plant_choice =6;
+        }
+        shovel_Selected = false;
     }
+
+
+
 
 
     @FXML
     public void selectShovel(MouseEvent mouseEvent) {
+        plant_choice = -1;
+        plant_selected = false;
+        shovel_Selected = true;
 
     }
-    @FXML
-    public void plantSelected(MouseEvent mouseEvent) {
-        if(plant_selected)
-        {
-            System.out.println("yes");
-        }
-    }
+
     @FXML
     public void setupTimeline(ActionEvent event)
     {
-        Pea pea=new Pea(260,260);
-        Zombie zombie=new normalZombie(360,250);
-        sun sun =new sun (270,280);
-        Peashooter  peashooter = new Peashooter(10,11);
-        anchor.getChildren().add(sun.getImg());
-        anchor.getChildren().add(pea.getImg());
-        anchor.getChildren().add(zombie.getImg());
-
-//        pea.setImg(peamove);
-//        currStage.getScene().getRoot();
-        currLevel.getPeas().add(pea);
-        currLevel.getZombies().add(zombie);
-
-//        currStage.getScene().getRoot().getC
-        KeyFrame update_frame =  new KeyFrame(Duration.millis((double)10), new helper.UpdatePos(currLevel,currStage));
-//       KeyFrame update_spawn = new KeyFrame(Duration.millis((double)1),new helper.UpdateSpawn(currLevel,currStage,anchor));
-        KeyFrame update_timer=new KeyFrame(Duration.millis((double)(100)),new helper.UpdateTimer(600,timer));
-        Timeline tl = new Timeline(update_frame);
-        tl.getKeyFrames().add(update_timer);
-//        tl.getKeyFrames().add(update_spawn);
-        tl.setCycleCount(Animation.INDEFINITE);
-        tl.play();
+//        Pea pea=new Pea(260,260);
+//        Zombie zombie=new normalZombie(360,250);
+//        sun sun =new sun (270,280);
+//        Peashooter  peashooter = new Peashooter(10,11);
+//        anchor.getChildren().add(sun.getImg());
+//        anchor.getChildren().add(pea.getImg());
+//        anchor.getChildren().add(zombie.getImg());
+//
+////        pea.setImg(peamove);
+////        currStage.getScene().getRoot();
+//        currLevel.getPeas().add(pea);
+//        currLevel.getZombies().add(zombie);
+//
+////        currStage.getScene().getRoot().getC
+//        KeyFrame update_frame =  new KeyFrame(Duration.millis((double)10), new helper.UpdatePos(currLevel,currStage));
+////       KeyFrame update_spawn = new KeyFrame(Duration.millis((double)1),new helper.UpdateSpawn(currLevel,currStage,anchor));
+//        KeyFrame update_timer=new KeyFrame(Duration.millis((double)(100)),new helper.UpdateTimer(600,timer));
+//        Timeline tl = new Timeline(update_frame);
+//        tl.getKeyFrames().add(update_timer);
+////        tl.getKeyFrames().add(update_spawn);
+//        tl.setCycleCount(Animation.INDEFINITE);
+//        tl.play();
 
     }
     @FXML
@@ -147,17 +160,24 @@ public class Game_Controller
     {
         if(!plant_selected)
         {
+            if(shovel_Selected)
+            {
+                ImageView t = (ImageView) mouseEvent.getSource();
+
+                t.setImage(null);
+            }
+            shovel_Selected = false;
             return;
         }
+        plant_selected = false;
 
         ImageView v = (ImageView) mouseEvent.getSource();
         Bounds b = v.localToScene(v.getBoundsInLocal());
         int x_position = (int)(b.getMaxX()+b.getMinX())/2;
         int y_position = (int)(b.getMinY()+b.getMaxY())/2;
-        Peashooter pea = new Peashooter(x_position,y_position);
-        v.setImage(pea.getImg().getImage());
-
-
+        System.out.println(y_position);
+        Plant p = new Peashooter(x_position,y_position);
+        v.setImage(p.getImg().getImage());
 
 
     }
