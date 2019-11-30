@@ -28,8 +28,8 @@ public class initialController {
         currStage.setTitle(((Control)evt.getSource()).getId());
             currStage.show();
             if (((Control)evt.getSource()).getId().equals("game")){
-                Level level=new Level(1,new ArrayList<entity.Plant>());
-                Game_Controller.setLevel(level);
+//                Level level=new Level(1,new ArrayList<entity.Plant>());
+//                Game_Controller.setLevel(level);
             }
 
 
