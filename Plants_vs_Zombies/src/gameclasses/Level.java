@@ -1,13 +1,29 @@
 package gameclasses;
 
+
 import entity.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Level {
-    private ArrayList<entity.Pea> peas=new ArrayList<>();
-    private ArrayList<entity.Zombie> zombies=new ArrayList<>();
-    private ArrayList<entity.Plant> plants = new ArrayList<>();
+    private ArrayList<entity.Pea> peas;
+    private ArrayList<entity.Zombie> zombies;
+    private ArrayList<entity.Plant> plants;
+    public Level(int LEVEL, ArrayList<Plant> plants)
+    {
+        this.plants = plants;
+        peas = new ArrayList<Pea>();
+
+        if(LEVEL == 1)
+        {
+            for(int i = 0;i<20;i++)
+            {
+                zombies.add(new normalZombie(600,2));
+            }
+        }
+    }
+
 
     public ArrayList<Suntype> getSuntypes() {
         return suntypes;
