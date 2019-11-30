@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.shopController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.shopController">
+   <children>
+      <ImageView fx:id="bg" fitHeight="400.0" fitWidth="548.0" layoutX="-1.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../sprites/background/staticShop.png" />
+         </image></ImageView>
+      <Button fx:id="slotBuyButton" layoutX="47.0" layoutY="52.0" mnemonicParsing="false" onAction="#buySlot" text="Buy 1 Slot !" />
+      <TextField fx:id="slotPriceText" editable="false" layoutX="14.0" layoutY="14.0" promptText="Price : 100" />
+      <TextField fx:id="error" layoutX="15.0" layoutY="278.0" prefHeight="27.0" prefWidth="239.0" />
+      <TextField editable="false" layoutX="357.0" layoutY="14.0" promptText="Buy Plants " />
+      <ImageView fx:id="snowpeashooter" fitHeight="117.0" fitWidth="102.0" layoutX="299.0" layoutY="91.0" onMouseClicked="#buyPlant" onMouseEntered="#showPrice" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../sprites/entity_images/SnowPea.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="firepeashooter" fitHeight="114.0" fitWidth="123.0" layoutX="418.0" layoutY="34.0" onMouseClicked="#buyPlant" onMouseEntered="#showPrice" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../sprites/entity_images/FlamingPeaShooter.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="potatomine" fitHeight="121.0" fitWidth="128.0" layoutX="293.0" layoutY="230.0" onMouseClicked="#buyPlant" onMouseEntered="#showPrice" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../sprites/entity_images/potatoMine.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wallnut" fitHeight="98.0" fitWidth="102.0" layoutX="426.0" layoutY="229.0" onMouseClicked="#buyPlant" onMouseEntered="#showPrice" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../sprites/entity_images/Wall-nut1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="torchwood" fitHeight="150.0" fitWidth="200.0" layoutX="47.0" layoutY="91.0" onMouseClicked="#buyPlant" onMouseEntered="#showPrice" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../sprites/entity_images/TorchWood.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

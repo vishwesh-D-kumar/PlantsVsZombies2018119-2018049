@@ -1,5 +1,6 @@
 package gameclasses;
 
+import entity.Plant;
 import errors.notEnoughCoins;
 
 import java.io.Serializable;
@@ -9,16 +10,40 @@ public class player implements Serializable {
     private int coins;
     private int numSlots;
 
-    private ArrayList<entity.Plant> unlockedPlants;
+//    private ArrayList<entity.Plant> unlockedPlants;
     private int levelUnlocked;
     private boolean inGame;
+    private boolean [] unlockedPlants;
+
     //Fixme
     private static player currPlayer;
     public player(){
-        unlockedPlants=new ArrayList<>();
+        unlockedPlants=new boolean[10]; //Order of use :pea shooter,snowpeashooter,wallnut,torchwood,firepeashooter,potatomine,
+        for (int i = 0; i <10; i++) {
+            unlockedPlants[i]=false;
+        }
+        unlockedPlants[0]=true;
+
         inGame=false;
         levelUnlocked=0;
 
+
+    }
+
+    public boolean[] getUnlockedPlants() {
+        return unlockedPlants;
+    }
+
+    public void setUnlockedPlants(boolean[] unlockedPlants) {
+        this.unlockedPlants = unlockedPlants;
+    }
+
+    public int getNumSlots() {
+        return numSlots;
+    }
+
+    public void setNumSlots(int numSlots) {
+        this.numSlots = numSlots;
     }
 
     public int getCoins() {
