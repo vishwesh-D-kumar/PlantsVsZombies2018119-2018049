@@ -8,6 +8,8 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.geometry.Bounds;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
@@ -46,8 +48,7 @@ public class Game_Controller
     private ImageView shovel;
     @FXML
     private GridPane lawn;
-    @FXML
-    private ImageView grid2_0;
+
 
     private Image image;
     private boolean plant_selected = false;
@@ -60,9 +61,10 @@ public class Game_Controller
         currStage=primaryStage;
     }
 
-    public void selectPlant(ActionEvent Click)
+    public void selectPlant(MouseEvent Click)
     {
-        String id = ((Control)Click.getSource()).getId();
+        ImageView v = (ImageView) Click.getSource();
+        String id = v.getId();
         System.out.println(id);
         if(id.equals("peashooter"))
         {
@@ -119,7 +121,6 @@ public class Game_Controller
         Zombie zombie=new normalZombie(360,250);
         sun sun =new sun (270,280);
         Peashooter  peashooter = new Peashooter(10,11);
-        grid2_0.setImage( peashooter.getImg().getImage());
         anchor.getChildren().add(sun.getImg());
         anchor.getChildren().add(pea.getImg());
         anchor.getChildren().add(zombie.getImg());
@@ -138,6 +139,24 @@ public class Game_Controller
 //        tl.getKeyFrames().add(update_spawn);
         tl.setCycleCount(Animation.INDEFINITE);
         tl.play();
+
+    }
+    @FXML
+    public void plant(MouseEvent mouseEvent)
+
+    {
+        if(!plant_selected)
+        {
+            return;
+        }
+
+        ImageView v = (ImageView) mouseEvent.getSource();
+        Bounds b = v.localToScene(v.getBoundsInLocal());
+        int x_position = (int)(b.getMaxX()+b.getMinX())/2;
+        int y_position = (int)(b.getMinY()+b.getMaxY())/2;
+        Peashooter pea = new Peashooter(x_position,y_position);
+        v.setImage(pea.getImg().getImage());
+
 
 
 
