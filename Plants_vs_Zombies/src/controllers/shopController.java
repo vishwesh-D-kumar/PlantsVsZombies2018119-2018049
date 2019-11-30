@@ -12,10 +12,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.File;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class shopController implements Initializable {
+public class shopController implements Serializable {
     @FXML private Button slotBuyButton;
     @FXML private TextField  slotPriceText;
     @FXML private TextField error;
@@ -33,14 +34,6 @@ public class shopController implements Initializable {
 //    }
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("@../sprites/background/staticShop.png");
-        Image image = new Image(file.toURI().toString());
-        bg.setImage(image);
-
-
-    }
     public void setMainplayer(){
         mainplayer=player.getCurrPlayer();
         System.out.println(mainplayer.getCoins());
@@ -152,8 +145,7 @@ public class shopController implements Initializable {
         {
 //            setMainplayer();
 
-            switch (        (  (ImageView)mouseEvent.getSource()).getId()
-            ){
+            switch (((ImageView)mouseEvent.getSource()).getId()){
                 case "snowpeashooter":
                     error.setText("Cost of this is : "+20);
                     break;
@@ -178,5 +170,6 @@ public class shopController implements Initializable {
             }
 
         }
-    }
+
+}
 

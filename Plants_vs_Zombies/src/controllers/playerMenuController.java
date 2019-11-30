@@ -15,7 +15,7 @@ public class playerMenuController {
 
     public void resume(ActionEvent evt) {
         mainplayer=player.getCurrPlayer();
-        if (mainplayer.isInGame()){
+        if (mainplayer.isInGame()|| true){
             sceneLoader.changeScreen("gameStage");
 
         }
