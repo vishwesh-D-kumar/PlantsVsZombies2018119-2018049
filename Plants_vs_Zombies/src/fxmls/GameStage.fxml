@@ -47,7 +47,7 @@
             </ImageView>
             <ImageView fx:id="snowpea" fitHeight="68.0" fitWidth="97.0" onMouseClicked="#selectPlant" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../sprites/entity_images/SnowPea.png" />
+                  <Image url="@../sprites/entity_images/SnowPeashooter.png" />
                </image></ImageView>
             <ImageView fx:id="torchwood" fitHeight="68.0" fitWidth="84.0" onMouseClicked="#selectPlant" pickOnBounds="true">
                <image>
