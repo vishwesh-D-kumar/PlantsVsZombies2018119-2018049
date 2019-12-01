@@ -158,13 +158,13 @@ public class Level {
         switch (zomb)
         {
             case 0:
-                return new normalZombie(600,y_coordinates[coor]-10);
+                return new normalZombie(600,y_coordinates[coor]);
             case 1:
-                return new ConeHeadZombie(600,y_coordinates[coor]-10);
+                return new ConeHeadZombie(600,y_coordinates[coor]);
             case 2:
-                return new BucketHeadZombie(600,y_coordinates[coor]-10);
+                return new BucketHeadZombie(600,y_coordinates[coor]);
             case 3:
-                return  new GangZombie(600,y_coordinates[coor]-10);
+                return  new GangZombie(600,y_coordinates[coor]);
                 default:
                 return null;
 
@@ -176,6 +176,7 @@ public class Level {
         {
             z.setAttacking(false);
         }
+        System.out.println(plants);
         ArrayList<Plant> remove = new ArrayList<>();
         for(Plant i: plants)
         {
@@ -187,8 +188,10 @@ public class Level {
                 {
                     for(Class c :i.getClass().getInterfaces())
                     {
+                        System.out.println(c.getName());
                         if(c.equals("spawner"))
                         {
+
                             spawner s = (spawner)i;
                             s.spawn(this, this.s,a);
                         }

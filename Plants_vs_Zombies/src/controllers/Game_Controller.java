@@ -256,6 +256,7 @@ public class Game_Controller
                 throw new IllegalStateException("Unexpected value: " + plant_choice);
         }
         v.setImage(p.getImg().getImage());
+        currLevel.getPlants().add(p);
 
 
     }
