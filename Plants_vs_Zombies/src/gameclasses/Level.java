@@ -177,7 +177,7 @@ public class Level {
         {
             z.setAttacking(false);
         }
-        System.out.println(plants);
+//        System.out.println(plants);
         ArrayList<Plant> remove = new ArrayList<>();
         for(Plant i: plants)
         {
@@ -187,16 +187,28 @@ public class Level {
             }
             else
                 {
-                    for(Class c :i.getClass().getInterfaces())
-                    {
-                        System.out.println(c.getName());
-                        if(c.getName().equals("spawner"))
-                        {
-
-                            spawner s = (spawner)i;
-                            s.spawn(this, this.s,a);
+                    System.out.println("here");
+                    for (Plant plantedPlant:plants
+                         ) {
+                        if(plantedPlant.getClass()==new Peashooter(1,0).getClass()){
+                            ((Shooter)plantedPlant).spawn(this,this.s,a);
                         }
+                        if(plantedPlant.getClass()==new Snowpeashooter(1,0).getClass()){
+                            ((Shooter)plantedPlant).spawn(this,this.s,a);
+                        }
+                        
                     }
+//                    for(Class c :i.getClass().getInterfaces())
+//                    {      System.out.println("here");
+//                        System.out.println(c.getName()+"asdasdsads");
+//
+//                        if(c.getName().equals("spawner"))
+//                        {
+//
+//                            spawner s = (spawner)i;
+//                            s.spawn(this, this.s,a);
+//                        }
+//                    }
                 }
         }
         for(Plant p : remove)
