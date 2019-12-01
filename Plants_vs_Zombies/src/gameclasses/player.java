@@ -14,7 +14,7 @@ public class player implements Serializable {
     private boolean inGame;
     private boolean [] unlockedPlants;
 
-    //Fixme
+
     private static player currPlayer;
     public player(){
         unlockedPlants=new boolean[10]; //Order of use :pea shooter,snowpeashooter,wallnut,torchwood,firepeashooter,potatomine,

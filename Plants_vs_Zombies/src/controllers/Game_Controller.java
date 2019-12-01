@@ -2,6 +2,7 @@ package controllers;
 
 import entity.*;
 import gameclasses.Level;
+import gameclasses.player;
 import helper.UpdatePos;
 import helper.UpdateTimer;
 import javafx.animation.Animation;
@@ -22,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import sun.security.provider.Sun;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,7 +37,7 @@ public class Game_Controller
     private static int count=0;
     private static gameclasses.Level currLevel;
     @FXML
-    TextField timer;
+    TextField progress;
 
     @FXML
     private AnchorPane anchor;
@@ -60,6 +62,49 @@ public class Game_Controller
     @FXML
     public void initialize()
     {
+        boolean[] p=player.getCurrPlayer().getUnlockedPlants();
+        int t=0;
+        for(t=0;t<10;t++)
+        {
+            if(!p[t])
+            {
+                break;
+            }
+        }
+        if(t==1)
+        {
+            p1.setImage(new Peashooter(1,3).getImg().getImage());
+        }
+        if(t==2)
+        {
+            p1.setImage(new Peashooter(1,3).getImg().getImage());
+            p2.setImage(new SunFlower(1,3).getImg().getImage());
+        }
+        if(t==3)
+        {
+
+            p1.setImage(new Peashooter(1,3).getImg().getImage());
+            p2.setImage(new SunFlower(1,3).getImg().getImage());
+            p3.setImage(new potatomine(1,3).getImg().getImage());
+        }
+        if(t==4)
+        {
+            p1.setImage(new Peashooter(1,3).getImg().getImage());
+            p2.setImage(new SunFlower(1,3).getImg().getImage());
+            p3.setImage(new potatomine(1,3).getImg().getImage());
+            p4.setImage(new Walnut(1,4).getImg().getImage());
+
+        }
+        if(t==5)
+        {
+            p1.setImage(new Peashooter(1,3).getImg().getImage());
+            p2.setImage(new SunFlower(1,3).getImg().getImage());
+            p3.setImage(new potatomine(1,3).getImg().getImage());
+            p4.setImage(new Walnut(1,4).getImg().getImage());
+            p5.setImage(new Firewood(1,5).getImg().getImage());
+        }
+
+
         Timer timer = new Timer();
         timer.schedule(
                 new TimerTask() {
@@ -71,6 +116,8 @@ public class Game_Controller
                                 count++;
                                 if(!(currLevel.getCopy().isEmpty())&&(count==100))
                                 {
+                                    progress.setText("");
+                                    progress.setText(currLevel.getCopy().size()+"/"+currLevel.getNum_zombie());
                                     Zombie z = currLevel.getCopy().remove(0);
                                     anchor.getChildren().add(z.getImg());
                                     count = 0;
@@ -187,7 +234,27 @@ public class Game_Controller
         int x_position = (int)(b.getMaxX()+b.getMinX())/2;
         int y_position = (int)(b.getMinY()+b.getMaxY())/2;
         System.out.println(y_position);
-        Plant p = new Peashooter(x_position,y_position);
+        Plant p;
+        switch (plant_choice) {
+            case 0:
+                p = new Peashooter(x_position, y_position);
+                break;
+            case 1:
+                p = new SunFlower(x_position,y_position);
+                break;
+            case 2:
+                p = new potatomine(x_position,y_position);
+                break;
+            case 3:
+                p= new Walnut(x_position,y_position);
+                break;
+            case 4:
+                p = new Firewood(x_position,y_position);
+                break;
+
+            default:
+                throw new IllegalStateException("Unexpected value: " + plant_choice);
+        }
         v.setImage(p.getImg().getImage());
 
 
