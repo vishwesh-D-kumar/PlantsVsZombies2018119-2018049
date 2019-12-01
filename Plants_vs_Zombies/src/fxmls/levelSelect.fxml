@@ -7,10 +7,11 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.initialController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="274.0" layoutY="67.0" mnemonicParsing="false" text="Level 1" />
-      <Button layoutX="274.0" layoutY="139.0" mnemonicParsing="false" text="Level 2" />
-      <Button layoutX="274.0" layoutY="200.0" mnemonicParsing="false" text="Level3" />
-      <Button layoutX="272.0" layoutY="260.0" mnemonicParsing="false" text="Level4" />
-      <Button layoutX="273.0" layoutY="321.0" mnemonicParsing="false" text="Level5" />
+      <Button fx:id="l1" layoutX="274.0" layoutY="67.0" mnemonicParsing="false" onAction="#goToLevel" text="Level 1" />
+      <Button fx:id="l2" layoutX="274.0" layoutY="139.0" mnemonicParsing="false" onAction="#goToLevel" text="Level 2" />
+      <Button fx:id="l3" layoutX="274.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToLevel" text="Level3" />
+      <Button fx:id="l4" layoutX="272.0" layoutY="260.0" mnemonicParsing="false" onAction="#goToLevel" text="Level4" />
+      <Button fx:id="l5" layoutX="273.0" layoutY="321.0" mnemonicParsing="false" onAction="#goToLevel" text="Level5" />
+      <Button fx:id="playerMenu" layoutX="511.0" layoutY="200.0" mnemonicParsing="false" onAction="#changeScreen" text="Back" />
    </children>
 </AnchorPane>

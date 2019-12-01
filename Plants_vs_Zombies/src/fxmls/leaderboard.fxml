@@ -16,6 +16,6 @@
         <Label layoutX="257.0" layoutY="144.0" text="2nd position" />
         <TextField layoutX="301.0" layoutY="78.0" text="level 6" />
         <TextField layoutX="309.0" layoutY="172.0" text="level 5" />
-      <Button layoutX="284.0" layoutY="239.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button fx:id="welcome" layoutX="284.0" layoutY="239.0" mnemonicParsing="false" onAction="#changeScreen" text="Back" />
     </children>
 </Pane>

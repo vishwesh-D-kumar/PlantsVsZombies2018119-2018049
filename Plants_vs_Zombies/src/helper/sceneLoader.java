@@ -51,6 +51,8 @@ public class sceneLoader{
         nameToPath.put("plantSelect","/fxmls/plantSelect.fxml");
         nameToPath.put("levelSelect","/fxmls/levelSelect.fxml");
         nameToPath.put("shop","/fxmls/shop.fxml");
+        nameToPath.put("almanac","/fxmls/Almanac.fxml");
+        nameToPath.put("leaderboard","/fxmls/leaderboard.fxml");
         for (String name : nameToPath.keySet()) {
             System.out.println(name);
             getNewScene(name);
