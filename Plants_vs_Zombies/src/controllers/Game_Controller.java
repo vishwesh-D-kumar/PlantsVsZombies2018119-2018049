@@ -14,7 +14,6 @@ import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -39,7 +38,6 @@ public class Game_Controller
     private static gameclasses.Level currLevel;
     @FXML
     TextField progress;
-
 
     @FXML
     private AnchorPane anchor;
@@ -142,9 +140,7 @@ public class Game_Controller
                             }
                         });
                     }
-                }, 3000, 100);
-
-
+                }, 300, 100);
     }
 
     private Image image;
@@ -224,8 +220,13 @@ public class Game_Controller
         shovel_Selected = true;
 
     }
+///asdsadas
+    @FXML
+    public void setupTimeline(ActionEvent event)
+    {
 
 
+    }
     @FXML
     public void plant(MouseEvent mouseEvent)
 
@@ -247,7 +248,7 @@ public class Game_Controller
         Bounds b = v.localToScene(v.getBoundsInLocal());
         int x_position = (int)(b.getMaxX()+b.getMinX())/2;
         int y_position = (int)(b.getMinY()+b.getMaxY())/2;
-        System.out.println(y_position+"llll");
+        System.out.println(y_position);
         Plant p;
         switch (plant_choice) {
             case 0:
