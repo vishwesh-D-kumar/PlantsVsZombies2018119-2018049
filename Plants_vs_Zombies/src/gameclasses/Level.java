@@ -23,6 +23,7 @@ public class Level {
     protected Stage s;
     protected AnchorPane a;
     protected GridPane g;
+    private int turns=0;
 
 
 
@@ -172,7 +173,8 @@ public class Level {
         }
     }
     public void update()
-    {
+    {   turns++;
+
         for(Zombie z: zombies)
         {
             z.setAttacking(false);
@@ -185,18 +187,19 @@ public class Level {
             {
                 remove.add(i);
             }
-            else
-                {
+            else {
+                if (turns > 20) {
+                    turns=0;
                     System.out.println("here");
-                    for (Plant plantedPlant:plants
-                         ) {
-                        if(plantedPlant.getClass()==new Peashooter(1,0).getClass()){
-                            ((Shooter)plantedPlant).spawn(this,this.s,a);
+                    for (Plant plantedPlant : plants
+                    ) {
+                        if (plantedPlant.getClass() == new Peashooter(1, 0).getClass()) {
+                            ((Shooter) plantedPlant).spawn(this, this.s, a);
                         }
-                        if(plantedPlant.getClass()==new Snowpeashooter(1,0).getClass()){
-                            ((Shooter)plantedPlant).spawn(this,this.s,a);
+                        if (plantedPlant.getClass() == new Snowpeashooter(1, 0).getClass()) {
+                            ((Shooter) plantedPlant).spawn(this, this.s, a);
                         }
-                        
+
                     }
 //                    for(Class c :i.getClass().getInterfaces())
 //                    {      System.out.println("here");
@@ -210,6 +213,7 @@ public class Level {
 //                        }
 //                    }
                 }
+            }
         }
         for(Plant p : remove)
         {
