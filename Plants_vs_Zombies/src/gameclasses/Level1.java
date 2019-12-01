@@ -12,6 +12,7 @@ public class Level1 extends Level {
         for(int i = 0;i<10;i++) {
             zombies.add(random_Zombie(1));
         }
+        this.setCopy(zombies);
 
     }
 }

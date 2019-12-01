@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.initialController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.initialController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="274.0" layoutY="67.0" mnemonicParsing="false" text="Level 1" />
+      <Button layoutX="274.0" layoutY="139.0" mnemonicParsing="false" text="Level 2" />
+      <Button layoutX="274.0" layoutY="200.0" mnemonicParsing="false" text="Level3" />
+      <Button layoutX="272.0" layoutY="260.0" mnemonicParsing="false" text="Level4" />
+      <Button layoutX="273.0" layoutY="321.0" mnemonicParsing="false" text="Level5" />
+   </children>
 </AnchorPane>

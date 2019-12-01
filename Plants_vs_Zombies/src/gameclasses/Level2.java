@@ -13,5 +13,6 @@ public class Level2 extends Level
         {
             zombies.add(random_Zombie(1));
         }
+        this.setCopy(zombies);
     }
 }

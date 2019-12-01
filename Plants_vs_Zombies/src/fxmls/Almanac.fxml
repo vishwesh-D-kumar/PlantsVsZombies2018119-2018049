@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.initialController">
+    <children>
+        <ImageView fitHeight="409.0" fitWidth="596.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../sprites/background/menu_bg.jpg" />
+            </image></ImageView>
+        <TextField editable="false" layoutX="104.0" layoutY="92.0" prefHeight="27.0" prefWidth="94.0" text="UncleZombie" />
+        <TextField editable="false" layoutX="109.0" layoutY="172.0" prefHeight="27.0" prefWidth="94.0" text="PlainZombie" />
+        <Label layoutX="27.0" layoutY="97.0" text="Zombie" />
+        <TextField layoutX="198.0" layoutY="92.0" prefHeight="27.0" prefWidth="167.0" text="HP: 3" />
+        <TextField layoutX="203.0" layoutY="172.0" text="HP:1" />
+        <ImageView fitHeight="128.0" fitWidth="101.0" layoutX="370.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../sprites/entity_images/CharmingNeglectedIchneumonfly-max-1mb.gif" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="111.0" fitWidth="157.0" layoutX="324.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../sprites/entity_images/Normie_Zombie_Move.gif" />
+            </image>
+        </ImageView>
+        <TextField layoutX="109.0" layoutY="228.0" prefHeight="27.0" prefWidth="94.0" text="ConeZombie" />
+        <TextField layoutX="203.0" layoutY="228.0" text="HP:2" />
+        <ImageView fitHeight="133.0" fitWidth="76.0" layoutX="395.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../sprites/entity_images/ConeheadZombieAttack.gif" />
+            </image>
+        </ImageView>
+        <Label contentDisplay="CENTER" graphicTextGap="100.0" layoutX="212.0" layoutY="14.0" prefHeight="48.0" prefWidth="224.0" text="Almanac" textAlignment="CENTER" underline="true">
+            <textFill>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </RadialGradient>
+            </textFill>
+            <font>
+                <Font name="Wingdings" size="47.0" />
+            </font></Label>
+    </children>
+</Pane>

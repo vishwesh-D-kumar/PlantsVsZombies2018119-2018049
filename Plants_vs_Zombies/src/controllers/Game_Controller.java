@@ -7,6 +7,7 @@ import helper.UpdateTimer;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
@@ -22,12 +23,16 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class Game_Controller
 {
 
     private static Stage currStage;
     private int plant_choice=-1;
+    private static int count=0;
     private static gameclasses.Level currLevel;
     @FXML
     TextField timer;
@@ -52,7 +57,34 @@ public class Game_Controller
     private ImageView shovel;
     @FXML
     private GridPane lawn;
+    @FXML
+    public void initialize()
+    {
+        Timer timer = new Timer();
+        timer.schedule(
+                new TimerTask() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                count++;
+                                if(!(currLevel.getCopy().isEmpty())&&(count==100))
+                                {
+                                    Zombie z = currLevel.getCopy().remove(0);
+                                    anchor.getChildren().add(z.getImg());
+                                    count = 0;
+                                }
 
+                                currLevel.setA(anchor);
+                                currLevel.setS(currStage);
+                                currLevel.setG(lawn);
+                                currLevel.update();
+                            }
+                        });
+                    }
+                }, 300, 100);
+    }
 
     private Image image;
     private boolean plant_selected = false;
@@ -130,28 +162,7 @@ public class Game_Controller
     @FXML
     public void setupTimeline(ActionEvent event)
     {
-//        Pea pea=new Pea(260,260);
-//        Zombie zombie=new normalZombie(360,250);
-//        sun sun =new sun (270,280);
-//        Peashooter  peashooter = new Peashooter(10,11);
-//        anchor.getChildren().add(sun.getImg());
-//        anchor.getChildren().add(pea.getImg());
-//        anchor.getChildren().add(zombie.getImg());
-//
-////        pea.setImg(peamove);
-////        currStage.getScene().getRoot();
-//        currLevel.getPeas().add(pea);
-//        currLevel.getZombies().add(zombie);
-//
-////        currStage.getScene().getRoot().getC
-//        KeyFrame update_frame =  new KeyFrame(Duration.millis((double)10), new helper.UpdatePos(currLevel,currStage));
-////       KeyFrame update_spawn = new KeyFrame(Duration.millis((double)1),new helper.UpdateSpawn(currLevel,currStage,anchor));
-//        KeyFrame update_timer=new KeyFrame(Duration.millis((double)(100)),new helper.UpdateTimer(600,timer));
-//        Timeline tl = new Timeline(update_frame);
-//        tl.getKeyFrames().add(update_timer);
-////        tl.getKeyFrames().add(update_spawn);
-//        tl.setCycleCount(Animation.INDEFINITE);
-//        tl.play();
+
 
     }
     @FXML

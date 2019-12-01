@@ -4,7 +4,7 @@ import gameclasses.Level;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class Shooter extends Plant {
+public class Shooter extends Plant implements spawner {
     protected Pea shoot;
     protected final int shoot_time;
     public Shooter(int x_position, int y_position, int health, String image_path, int SUN_COST, int MAX_COOLDOWN,Pea shoot,int shoot_time) {
@@ -26,6 +26,7 @@ public class Shooter extends Plant {
     }
 
     public void spawn(Level a, Stage stage, AnchorPane anchor) {
+        System.out.println("....");
         Pea pea=new Pea(x_position,y_position);
         a.getPeas().add(pea);
         anchor.getChildren().add(pea.getImg());

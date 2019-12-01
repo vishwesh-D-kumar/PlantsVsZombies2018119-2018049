@@ -11,6 +11,7 @@ public abstract class  Entity {
     protected int speed;
     protected final String image_path;
     protected ImageView img;
+
     Entity(int x_position,int y_position,int MAX_HEALTH,int speed,String image_path)
     {
         this.x_position = x_position;
@@ -22,6 +23,7 @@ public abstract class  Entity {
         this.img=new ImageView(new Image(image_path));
         this.img.setX(x_position);
         this.img.setY(y_position);
+
 
 
 

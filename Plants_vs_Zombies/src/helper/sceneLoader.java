@@ -2,6 +2,7 @@ package helper;
 
 import entity.Plant;
 import gameclasses.Level;
+import gameclasses.Level1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,19 +22,36 @@ public class sceneLoader{
     private static HashMap<String, Scene> nameToScene=new HashMap<>();
 
 
+    public static Stage getCurrStage() {
+        return currStage;
+    }
+
+    public static HashMap<String, String> getNameToPath() {
+        return nameToPath;
+    }
+
+    public static void setNameToPath(HashMap<String, String> nameToPath) {
+        sceneLoader.nameToPath = nameToPath;
+    }
+
+    public static HashMap<String, Scene> getNameToScene() {
+        return nameToScene;
+    }
+
+    public static void setNameToScene(HashMap<String, Scene> nameToScene) {
+        sceneLoader.nameToScene = nameToScene;
+    }
+
     public sceneLoader () throws IOException {
         nameToPath.put("welcome","/fxmls/sample.fxml");
         nameToPath.put("login","/fxmls/loginscreen.fxml");
-        nameToPath.put("game","/fxmls/GameStage.fxml");
         nameToPath.put("help","/fxmls/help.fxml");
         nameToPath.put("register","/fxmls/userRegister.fxml");
         nameToPath.put("playerMenu","/fxmls/playerMenu.fxml");
-        nameToPath.put("gameStage","/fxmls/GameStage.fxml");
         nameToPath.put("plantSelect","/fxmls/plantSelect.fxml");
         nameToPath.put("levelSelect","/fxmls/levelSelect.fxml");
         nameToPath.put("shop","/fxmls/shop.fxml");
-        for (String name :
-                nameToPath.keySet()) {
+        for (String name : nameToPath.keySet()) {
             System.out.println(name);
             getNewScene(name);
 
@@ -54,7 +72,7 @@ public class sceneLoader{
         currStage.show();
 
         if (((Control) evt.getSource()).getId().equals("login")) {
-            Level level = new Level(1,new ArrayList<Plant>());
+            Level level = new Level1(new ArrayList<Plant>());
             controllers.Game_Controller.setLevel(level);
         }
     }

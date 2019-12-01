@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.initialController">
+    <children>
+        <ImageView fitHeight="409.0" fitWidth="596.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../sprites/background/menu_bg.jpg" />
+            </image></ImageView>
+        <Button fx:id="register" layoutX="201.0" layoutY="123.0" mnemonicParsing="false"  prefHeight="27.0" prefWidth="342.0" text="Resume Game" />
+        <Button fx:id="login" layoutX="197.0" layoutY="188.0" mnemonicParsing="false"   prefHeight="27.0" prefWidth="351.0" text="Save and Exit" />
+    </children>
+</Pane>

@@ -1,12 +1,13 @@
 package controllers;
 
 import gameclasses.Level;
+import gameclasses.Level1;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.stage.Stage;
-
+import helper.sceneLoader;
 import javafx.event.ActionEvent;
 
 import java.util.ArrayList;
@@ -27,13 +28,12 @@ public class initialController {
 //            currStage.setTitle("login");
         currStage.setTitle(((Control)evt.getSource()).getId());
             currStage.show();
-            if (((Control)evt.getSource()).getId().equals("game")){
-//                Level level=new Level(1,new ArrayList<entity.Plant>());
-//                Game_Controller.setLevel(level);
-            }
+        Level level=new Level1(new ArrayList<entity.Plant>());
+        Game_Controller.setLevel(level);
 
 
     }
+    @FXML
     public void closeGame(ActionEvent e){
         System.exit(0);
     }
