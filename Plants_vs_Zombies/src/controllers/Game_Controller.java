@@ -14,6 +14,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -38,6 +39,8 @@ public class Game_Controller
     private static gameclasses.Level currLevel;
     @FXML
     TextField progress;
+    @FXML
+    Label suncount;
 
     @FXML
     private AnchorPane anchor;
@@ -121,6 +124,8 @@ public class Game_Controller
                                     Zombie z = currLevel.getCopy().remove(0);
                                     anchor.getChildren().add(z.getImg());
                                     count = 0;
+
+
                                 }
 
                                 currLevel.setA(anchor);

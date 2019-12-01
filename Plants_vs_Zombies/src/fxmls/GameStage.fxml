@@ -21,7 +21,7 @@
             </ImageView>
          </children></HBox>
       <Label layoutX="74.0" layoutY="14.0" prefHeight="18.0" prefWidth="61.0" text="Sun Count" />
-      <Label id="Sun_Count" layoutX="88.0" layoutY="37.0" text="0" />
+      <Label id="Sun_Count" fx:id="suncount" layoutX="88.0" layoutY="37.0" text="0" />
       <HBox layoutX="130.0" layoutY="5.0" prefHeight="66.0" prefWidth="558.0">
          <children>
             <ImageView fx:id="p1" fitHeight="46.0" fitWidth="58.0" onMouseClicked="#selectPlant" pickOnBounds="true" preserveRatio="true" />
