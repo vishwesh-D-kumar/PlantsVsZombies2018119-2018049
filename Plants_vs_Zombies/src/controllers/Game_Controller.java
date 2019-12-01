@@ -39,8 +39,7 @@ public class Game_Controller
     private static gameclasses.Level currLevel;
     @FXML
     TextField progress;
-    @FXML
-    Label suncount;
+
 
     @FXML
     private AnchorPane anchor;
@@ -136,10 +135,6 @@ public class Game_Controller
                                     count = 0;
 
                                 }
-                                System.out.println(currLevel.getZombies().get(0).getX_position());
-                                System.out.println(currLevel.getZombies().get(0).getY_position());
-
-                                System.out.println(currLevel.getPlants().get(0).getY_position());
                                 currLevel.setA(anchor);
                                 currLevel.setS(currStage);
                                 currLevel.setG(lawn);
@@ -148,13 +143,18 @@ public class Game_Controller
                         });
                     }
                 }, 3000, 100);
-        
+
 
     }
 
     private Image image;
     private boolean plant_selected = false;
     private boolean shovel_Selected = false;
+    @FXML
+    public void setupTimeline()
+    {
+
+    }
     @FXML
     public static void setLevel(gameclasses.Level level){
         currLevel=level;
