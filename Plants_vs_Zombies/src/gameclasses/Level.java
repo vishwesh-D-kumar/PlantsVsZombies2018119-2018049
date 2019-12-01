@@ -189,7 +189,7 @@ public class Level {
                     for(Class c :i.getClass().getInterfaces())
                     {
                         System.out.println(c.getName());
-                        if(c.equals("spawner"))
+                        if(c.getName().equals("spawner"))
                         {
 
                             spawner s = (spawner)i;

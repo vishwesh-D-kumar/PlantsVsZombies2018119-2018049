@@ -106,6 +106,16 @@ public class Game_Controller
             p4.setImage(new Walnut(1,4).getImg().getImage());
             p5.setImage(new Firewood(1,5).getImg().getImage());
         }
+        if(t==6)
+        {
+            p1.setImage(new Peashooter(1,3).getImg().getImage());
+            p2.setImage(new SunFlower(1,3).getImg().getImage());
+            p3.setImage(new potatomine(1,3).getImg().getImage());
+            p4.setImage(new Walnut(1,4).getImg().getImage());
+            p5.setImage(new Firewood(1,5).getImg().getImage());
+            p6.setImage(new Snowpeashooter(1,6).getImg().getImage());
+
+        }
 
 
         Timer timer = new Timer();
@@ -125,9 +135,11 @@ public class Game_Controller
                                     anchor.getChildren().add(z.getImg());
                                     count = 0;
 
-
                                 }
+                                System.out.println(currLevel.getZombies().get(0).getX_position());
+                                System.out.println(currLevel.getZombies().get(0).getY_position());
 
+                                System.out.println(currLevel.getPlants().get(0).getY_position());
                                 currLevel.setA(anchor);
                                 currLevel.setS(currStage);
                                 currLevel.setG(lawn);
@@ -135,7 +147,9 @@ public class Game_Controller
                             }
                         });
                     }
-                }, 300, 100);
+                }, 3000, 100);
+        
+
     }
 
     private Image image;
@@ -211,12 +225,7 @@ public class Game_Controller
 
     }
 
-    @FXML
-    public void setupTimeline(ActionEvent event)
-    {
 
-
-    }
     @FXML
     public void plant(MouseEvent mouseEvent)
 
@@ -238,7 +247,7 @@ public class Game_Controller
         Bounds b = v.localToScene(v.getBoundsInLocal());
         int x_position = (int)(b.getMaxX()+b.getMinX())/2;
         int y_position = (int)(b.getMinY()+b.getMaxY())/2;
-        System.out.println(y_position);
+        System.out.println(y_position+"llll");
         Plant p;
         switch (plant_choice) {
             case 0:
