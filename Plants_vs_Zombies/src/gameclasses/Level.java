@@ -223,17 +223,15 @@ public class Level {
         }
         ArrayList<Pea> removepea = new ArrayList<>();
         ArrayList<Zombie> removeZombie = new ArrayList<>();
-        for(Pea i: peas)
-        {
-            i.updatepos();
-        }
 
         for(Pea i :peas)
         {
             for(Zombie j :zombies)
             {
-                if((i.getX_position()==j.getX_position())&&(i.getY_position()==i.getY_position()))
+                if((i.getX_position()==j.getX_position()))
                 {
+                    System.out.println("pea position   "+i.getX_position()+" "+i.getY_position() );
+                    System.out.println("zombie position"+j.getX_position()+" "+j.getY_position());
                     j.setHealth(j.getHealth()-i.getAttack());
                     if(j.getHealth()<=0)
                     {
@@ -245,6 +243,11 @@ public class Level {
                 }
             }
         }
+        for(Pea i: peas)
+        {
+            i.updatepos();
+        }
+
         for (Pea i : removepea)
         {
             i.getImg().setImage(null);
@@ -261,7 +264,7 @@ public class Level {
         {
             for (Zombie j: zombies)
             {
-                if((i.getX_position()==j.getX_position())&&(i.getY_position()==j.getY_position()))
+                if((i.getX_position()==j.getX_position()))
                 {
                     if(i.getClass().getName().equals("potatomine"))
                     {
