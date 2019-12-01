@@ -107,7 +107,7 @@ public class Level {
 
     }
 
-
+///asdsadasasdsada
     public ArrayList<Suntype> getSuntypes() {
         return suntypes;
     }
