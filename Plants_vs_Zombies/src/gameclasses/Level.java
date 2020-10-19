@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-
+// importing required utils
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
